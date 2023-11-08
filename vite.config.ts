@@ -3,8 +3,18 @@ import { qwikVite } from "@builder.io/qwik/optimizer";
 import { qwikCity } from "@builder.io/qwik-city/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+
 export default defineConfig(() => {
+  console.log("process.env.npm_lifecycle_event", process.env.npm_lifecycle_event)
   return {
+    build: {
+      rollupOptions: {
+        output: process.env.npm_lifecycle_event === "build.preview" ? {
+          chunkFileNames:
+          '[name]-[hash].mjs',
+        }: undefined,
+      },
+    },
     plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
     preview: {
       headers: {
