@@ -5,13 +5,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(() => {
   return {
-    build: {
-      rollupOptions: {
-        output: {
-          chunkFileNames: '[name]-[hash].mjs',
-        },
-      },
-    },
     plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
     preview: {
       headers: {
