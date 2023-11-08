@@ -6,7 +6,13 @@ export default component$(() => {
   return (
     <>
       <h1>Hi 👋</h1>
-      <Glob name="example2" />
+      This
+      {
+        '<Glob name="example1" /> tag uses import.meta.glob to render the Example1 component: '
+      }
+      <br />
+      <br />
+      <Glob name="example1" />
     </>
   );
 });

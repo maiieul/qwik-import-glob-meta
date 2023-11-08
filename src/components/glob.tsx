@@ -18,10 +18,5 @@ export default component$<{ name: string }>(({ name }) => {
     ]()) as Component<any>;
   });
 
-  return (
-    <>
-      <div>glob</div>
-      {Component.value && <Component.value />}
-    </>
-  );
+  return <>{Component.value && <Component.value />}</>;
 });
